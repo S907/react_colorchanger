@@ -1,23 +1,53 @@
-import logo from './logo.svg';
-import './App.css';
+import { useState } from "react";
+import "./App.css";
+import Button from "./Button.js"
 
 function App() {
+  const [color, setColor] = useState("blue");
+
+  // Adding event-listener
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
+    <div className={`App ${color}`}>
+      <div className="container">
+        <h1>SUPER MARIO EFFECT!!!</h1>
+
+        <button
+          className="yellow"
+          onClick={() => {
+            console.log("clicked!!");
+            setColor("yellow");
+          }}
         >
-          Learn React
-        </a>
-      </header>
+          YELLOW
+        </button>
+
+        <button
+          className="red"
+          onClick={() => {
+            console.log("Bazinga");
+            setColor("red");
+          }}
+        >
+          RED
+        </button>
+
+        <button
+          className="grey"
+          onClick={() => {
+            console.log("Bazinga3");
+            setColor("grey");
+          }}
+        >
+          GREY
+        </button>
+
+        {/* Reusability of using hooks using another component  */}
+
+        <Button color="Orange" setColor={setColor}/>
+        <Button color="Magenta" setColor={setColor}/>
+        <Button color="Teal" setColor={setColor}/>
+      </div>
     </div>
   );
 }
